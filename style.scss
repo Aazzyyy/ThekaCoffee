@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Theka";
+  src: url("../fonts/theka.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Theka", sans-serif;
+}
+
+main {
+  width: 100%;
+}
+
+/* NAVIGATION */
+nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .logo img {
+    height: 50px;
+    width: auto;
+    z-index: 2;
+  }
+
+  .hamburger {
+    width: 35px;
+    height: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 3;
+
+    span {
+      display: block;
+      height: 3px;
+      background: #312929;
+      border-radius: 4px;
+      transition: 0.4s ease;
+    }
+
+    &.active {
+      span:nth-child(1) { transform: translateY(12px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-12px) rotate(-45deg); }
+    }
+  }
+}
+
+/* HERO */
+.hero_showcase {
+  width: 90%;
+  height: 400px;
+  margin: 150px auto 0 auto;
+  background-image: url("https://thekacafe.com/images/coffee_banner_new.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 45%;
+  position: relative;
+  z-index: 1;
+}
+
+/* MARQUEE */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  height: 120px; // enough for rotated text
+  display: flex;
+  align-items: center;
+  margin-top: -60px; // overlap slightly with hero
+  position: relative;
+  z-index: 2;
+}
+
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 200%;  // extra width for smooth loop
+  transform: rotate(-10deg);
+}
+
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 2rem;
+  font-size: 4rem;
+  font-weight: bold;
+  color: red;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .marquee-text {
+    font-size: 2rem;
+  }
+
+  .marquee-track {
+    transform: rotate(-5deg);
+  }
+
+  .hero_showcase {
+    height: 250px;
+  }
+}
+
